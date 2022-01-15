@@ -14,4 +14,4 @@ class hero(object):
 
     def get_discricao(self):
         return self._descricao
-    
+
