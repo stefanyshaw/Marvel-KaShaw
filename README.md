@@ -1,3 +1,3 @@
 # Marvel-KaShaw
 
-Teste 1: Oie
+API: https://developer.marvel.com/
