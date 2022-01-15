@@ -1,17 +1,28 @@
-from flask import Flask, render_template
-from flask_fontawesome import FontAwesome
-#from flask_bootstrap import Bootstrap
-#from service.marvel import get_hero
-from model.marvel import herois
+try:
+    import requests
+    import pendulum
+    import hashlib
+    from model.key import public_key, private_key
+    from model.api import get_character
+    from flask import Flask, render_template, request
+except ImportError as err:
+    print(f"Failed to import required packages: {err}")
+
+
+
 
 app = Flask(__name__)
-fa = FontAwesome(app)
-#bootstrap = Bootstrap(app)
 
-@app.route('/')
+
+@app.route('/', methods=["GET", "POST"])
 def index():
-    lista_herois = herois()
-    return render_template('index.html', lista_herois=lista_herois)
+    if request.method == "POST":
+        name = request.form["search"]
+        data = get_character(public_key, private_key, name)
+        return render_template("index.html", data=data)
+
+    return render_template("index.html")
+
 
 if __name__ == '__main__':
     app.run()
