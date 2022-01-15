@@ -26,7 +26,7 @@ def get_hero(name_starts_with = ''):
     info_hash = get_hash()
 
     params = {
-        "NameStartWith": name_starts_with,
+        #"NameStartWith": name_starts_with,
         "limit": 50,
         "ts": info_hash[0],
         "apikey": info_hash[1],
@@ -34,4 +34,16 @@ def get_hero(name_starts_with = ''):
     }
 
     resp = request.get('https://developer.marvel.com:443/v1/public/characters', params)
-    return resp.json()['data']['result']
+    json = resp.json()
+    data = json['data']
+    results = data['results']
+   # return resp.json()['data']['results']
+    return results
+
+def herois():
+    lista = get_hero()
+    return lista.map(lambda heroi: Heroi(
+        heroi['thumbnail']['path']+heroi['thumbnail']['extension'],
+        heroi['name'],
+        heroi['description']
+    ))
