@@ -12,5 +12,5 @@ def index():
     lista_hero = get_hero()
     return render_template('index.html', lista_hero)
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     app.run()
