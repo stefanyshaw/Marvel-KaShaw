@@ -20,17 +20,16 @@ def get_hash():
 
     return ts, apikey, hash_marvel
 
-def get_hero(name_starts_with = ''):
-    info_hash= get_hash()
+def busca_herois(name_starts_with = ''):
+    info_hash = get_hash()
 
     params = {
         "NameStartWith": name_starts_with,
-        "limit":50,
-        "ts":info_hash[0],
+        "limit": 50,
+        "ts": info_hash[0],
         "apikey": info_hash[1],
         "hash": info_hash[2]
     }
 
-
-resp = request.get('https://developer.marvel.com/docs#!/public/characters', params)
-return resp.json()['data']['result']
+    resp = request.get('https://developer.marvel.com:443/v1/public/characters', params)
+    return resp.json()['data']['result']
