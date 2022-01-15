@@ -48,6 +48,13 @@
   <body>
     
 <header>
+    <ul>
+        {%  for heroi in lista_herois %}
+            <li>{{ heroi['name'] }}</li>
+        {% endfor %}    
+    </ul>
+
+    
   <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
       <div class="row">

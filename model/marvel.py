@@ -9,6 +9,7 @@ import request
 load_dotenv()
 #os.getenv('API_kEY')
 
+#segurança
 def get_hash():
     ts = int(time())
     pvt = os.getenv('PVT_KEY')
@@ -20,7 +21,8 @@ def get_hash():
 
     return ts, apikey, hash_marvel
 
-def busca_herois(name_starts_with = ''):
+#api
+def get_hero(name_starts_with = ''):
     info_hash = get_hash()
 
     params = {

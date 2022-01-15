@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_fontawesome import FontAwesome
 #from flask_bootstrap import Bootstrap
 #from service.marvel import get_hero
-from model.marvel import busca_herois
+from model.marvel import get_hero
 
 app = Flask(__name__)
 fa = FontAwesome(app)
@@ -10,7 +10,7 @@ fa = FontAwesome(app)
 
 @app.route("/")
 def index():
-    lista_herois = busca_herois()
+    lista_herois = get_hero()
     return render_template('index.html', lista_herois)
 
 if __name__ == '__main__':
