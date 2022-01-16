@@ -2,7 +2,7 @@ try:
     import requests
     import pendulum
     import hashlib
-    from model.marvel import public_key, private_key
+    #from model.marvel import public_key, private_key
     from flask import Flask, render_template, request
 except ImportError as err:
     print(f"Failed to import required packages: {err}")
