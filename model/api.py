@@ -32,3 +32,4 @@ def get_character(public_key, private_key, name):
         return {"name": name, "description": description, "thumbnail": thumbnail}
     except IndexError:
         return render_template("index.html")
+

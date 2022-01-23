@@ -1,17 +1,22 @@
-try:
-    import requests
-    import pendulum
-    import hashlib
-    from model.key import public_key, private_key
-    from model.api import get_character
-    from flask import Flask, render_template, request
-except ImportError as err:
-    print(f"Failed to import required packages: {err}")
+#try:
+#    import requests
+#    import pendulum
+#    import hashlib
+#    from model.key import public_key, private_key
+#    from model.api import get_character
+#    from flask import Flask, render_template, request
+#except ImportError as err:
+#    print(f"Failed to import required packages: {err}")
 
-
-
+import requests
+import pendulum
+import hashlib
+from model.key import public_key, private_key
+from model.api import get_character
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
+
 
 
 @app.route('/', methods=["GET", "POST"])
